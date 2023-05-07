@@ -283,6 +283,16 @@
     <div><a style="color: var(--gold);" href="assets/Eternum.zip">Download as separate styles</a></div>
 </div>
 
+<div class="slidecontainer" style="padding: 30px; margin: 0 50px; display: flex; justify-content: space-between;">
+    <span><label for="size">Font size: </label><input type="range" min="1" max="100" value="18" class="slider" id="size" /></span>
+    <span><label for="weight">Font weight: </label><input type="range" min="50" max="400" value="100" class="slider" id="weight" /></span>
+    <span><label for="italic">Italic: </label><input type="range" min="0" max="100" value="0" class="slider" id="italic" /></span>
+</div>
+
+<div id="sandbox" contenteditable="true" style="font-size: 18pt;font-variation-settings: 'wght' 100, 'ital' 0; outline: 2px solid var(--blue); padding: 30px; margin: 0 50px 50px 50px;">
+The quick brown fox jumped over the lazy dog.
+</div>
+
 <script>
     function openNav() {
         document.getElementById("nav").style.height = "100%";
@@ -307,6 +317,18 @@
         ital = Math.round(ital);
 
         document.getElementById("hoverInteract").style["font-variation-settings"] = `"wght" ${bold}, "ital" ${ital}`;
+    }
+
+    document.getElementById("size").oninput = function() {
+        document.getElementById("sandbox").style["font-size"] = this.value + "pt";
+    }
+
+    document.getElementById("weight").oninput = function() {
+        document.getElementById("sandbox").style["font-variation-settings"] = `"wght" ${this.value}, "ital" ${document.getElementById("italic").value}`;
+    }
+
+    document.getElementById("italic").oninput = function() {
+        document.getElementById("sandbox").style["font-variation-settings"] = `"wght" ${document.getElementById("weight").value}, "ital" ${this.value}`;
     }
 </script>
 </body>
