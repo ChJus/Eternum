@@ -6,3 +6,6 @@ Repository for my typeface, Eternum.
 
 ## Installation
 Download the variable font `.ttf` from the [Releases](https://github.com/ChJus/Eternum/releases) panel.
+
+## Process
+Read about the process [here](https://github.com/ChJus/Eternum/blob/main/Process.md).
